@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Список дел</title>
+  <style>
+  .list {
+  width: 650px;
+  margin:auto;
+  }
+  .begin {width: 600px;
+  margin:auto;
+  }
+  </style>
+  
+  <script>
+   function isAdd(){
+	var str = document.getElementById("box").value;
+	var getList = document.getElementById("list-items");
+	var element = document.createElement("li");
+	
+	var but = document.createElement("button");
+	but.appendChild(document.createTextNode("Удалить"));
+	but.addEventListener("click", del);
+	
+	var checkBox = document.createElement("input");
+	checkBox.type = "checkbox";
+	
+	element.appendChild(checkBox);
+	element.appendChild(document.createTextNode(str + " "));
+	element.appendChild(but);
+	
+	getList.appendChild(element);
+	document.getElementById("box").value = "";
+   }
+   
+   function del(event){
+	var but = event.target;
+	but.parentElement.remove();
+   }
+  </script>
+</head>
+<body>
+	
+
+	<div class="begin">
+	  <h1>Список дел</h1>
+			<input type="text" id="box"/>
+			<button onclick="isAdd()">Добавить</button>
+	</div>
+	
+	<div class="list">
+		<ol id = "list-items">			
+			
+		</ol>
+	</div>
+</body>
+</html> 
