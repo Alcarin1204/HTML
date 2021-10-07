@@ -2,90 +2,27 @@
 <html lang="en">
 
 <head>
-
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .wrapperTop {
-            padding: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 40%;
-        }
-        .wrapperList{
-            margin-left: 30%;
-            margin-right: auto;
-            width: 30%;
-            background: blanchedalmond;
-        }
-
-        #list-items li {
-            margin: 2px;
-            padding: 3px;
-        }
-
-        #list-items li button {
-            float:right;
-        }
-    </style>
-
     <title >Список дел</title>
-    <script>
-
-        function isAdd() {//добавление сьроки в список
-            const str = document.getElementById("box").value;
-            const getList = document.getElementById("list-items");
-            const element = document.createElement("li");
-
-            if (str === "") {
-                return;
-            }
-
-            const but = document.createElement("button");
-            but.appendChild(document.createTextNode("Удалить"));
-            but.addEventListener("click", del);//навешивание листенера на кнопку удаления          
-
-            const checkBox = document.createElement("input");
-            checkBox.type = "checkbox";
-            checkBox.addEventListener("click", checkBox_Checked); //навешивание листенера на чекбоксы     
-
-            const text = document.createElement("span");
-            text.innerText = str; 
-
-            element.appendChild(checkBox);
-            element.appendChild(text);
-            element.appendChild(but);
-            
-            getList.appendChild(element);
-            document.getElementById("box").value = "";//очистка поля после добавления элемента
-        }
-
-        function del(event) {//удаление строки из списка
-            const but = event.target;
-            but.parentElement.remove();
-        }
-
-        function checkBox_Checked(event){//перечеркивание отмеченных строк
-            const checkBox = event.target;
-            const parentElement = checkBox.parentElement;
-            const str = parentElement.childNodes[1];
-            if (checkBox.checked){
-                str.style.textDecoration = "line-through";
-            }
-            else{
-                str.style.textDecoration = "none";
-            }
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="index.js"></script>
 </head>
+
 <body style="background: #267c62;">
 <div class="wrapperTop">
     <h1 style="color: rgb(235, 231, 231); margin-left: 70px;">Список дел</h1>
-    <input  type="text" id="box" size="30%" placeholder="Введите дело..."/>
-    <button style="background-color: #c4c2c2; " onclick="isAdd()">Добавить</button>
+    <input  type="text" id="box" size="30%" placeholder="Введите дело..." maxlength="30"/>
+    <button style="background-color: #c4c2c2; " onclick="isAdd()" >Добавить</button>
 </div> 
 
 <div class="wrapperList">
     <ol id="list-items"></ol>
 </div>
+
+<div class= "Liks">
+    <p><a href="#" onclick="changeFilter(event)">Сделано</a></p>
+    <p><a href="#" onclick="changeFilter(event)">Не сделано</a></p>
+    <p><a href="#" onclick="changeFilter(event)">Все</a></p>
+</div>
+
 </body>
 </html> 
