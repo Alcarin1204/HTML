@@ -11,8 +11,11 @@
             width: 20%;
             background: blanchedalmond;
         }
-        .Links{
-            padding: 20px;            
+        .wrapperLinks{
+            margin-left: 30%;
+            margin-right: auto;
+            width: 10%;
+            background: blanchedalmond;                   
         }
 
         #list-items li {
