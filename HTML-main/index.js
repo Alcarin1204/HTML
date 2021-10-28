@@ -11,8 +11,7 @@ function isAdd() {//добавление сьроки в список
 const array = []
 let currentFilter = "";
 
-function render(array){
-             
+function render(array){             
     const getList = document.getElementById("list-items");
     getList.innerHTML="";
     array.forEach((e,index) =>{

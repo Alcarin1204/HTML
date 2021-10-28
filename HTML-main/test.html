@@ -5,9 +5,10 @@
     <title >Список дел</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="index.js"></script>
+    <script src="ForSystems.js"></script>
 </head>
 
-<body style="background: #267c62;">
+<body onload="fullSelect()" style="background: #267c62;">
 <div class="wrapperTop">
     <h1 style="color: rgb(235, 231, 231); margin-left: 70px;">Список дел</h1>
     <input  type="text" id="box" size="30%" placeholder="Введите дело..." maxlength="30"/>
@@ -23,6 +24,15 @@
     <a href="#" onclick="changeFilter(event)">Не сделано</a>
     <a href="#" onclick="changeFilter(event)">Все</a>
 </div>
+<div class="wrapperSystem">
+    <p>В 10-ой системе</p>
+    <input type="text" id="des_input" size="30%" maxlength="30"/>
+    <select id = "selBox" onchange="changeSystem()"></select>        
+</div>
 
+<div class="wrapperSystem">
+    <p id = "number_system">В $-ой системе</p>
+    <input type="text" id="des_output" size="30%" maxlength="30"/>        
+</div>
 </body>
 </html> 
