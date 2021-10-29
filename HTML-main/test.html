@@ -24,15 +24,17 @@
     <a href="#" onclick="changeFilter(event)">Не сделано</a>
     <a href="#" onclick="changeFilter(event)">Все</a>
 </div>
+
 <div class="wrapperSystem">
     <p>В 10-ой системе</p>
-    <input type="text" id="des_input" size="30%" maxlength="30"/>
+    <input type="number" id="des_input" oninput="changeSystem()" size="30%" maxlength="30"/>
     <select id = "selBox" onchange="changeSystem()"></select>        
 </div>
 
 <div class="wrapperSystem">
     <p id = "number_system">В $-ой системе</p>
-    <input type="text" id="des_output" size="30%" maxlength="30"/>        
+    <input type="text" id="des_output" onkeydown="EventListener(event)" size="30%" maxlength="30"/>        
 </div>
+
 </body>
 </html> 

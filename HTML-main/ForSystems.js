@@ -10,22 +10,22 @@ function fullSelect(){//заполнение SelectBox
         getSelectBox.appendChild(new_option);
         i++;
     }
-    to_a();    
+    to_mass();    
 }
 
-function to_a(c1 = 'A', c2 = 'Z') {//заполнение масссива алфавитом
+function to_mass(c1 = 'A', c2 = 'Z') {//заполнение масссива алфавитом
     masAlp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     return (masAlp.slice(masAlp.indexOf(c1), masAlp.indexOf(c2) + 1)); 
 }
 
 function changeSystem(){//при изменении selectBox
     const index = document.getElementById("selBox").options.selectedIndex;
-    const val = document.getElementById("selBox").options[index].value;//получил n-ую систему
+    const val = Number(document.getElementById("selBox").options[index].value);//получил n-ую систему
 
     const p_out =  document.getElementById("number_system");//изменения надписи
     p_out.innerHTML = "В " + val + "-ой системе";
 
-    let input_str = document.getElementById("des_input").value;//получения полей
+    let input_str = Number(document.getElementById("des_input").value);//получения полей
     const output_str = document.getElementById("des_output");
     output_str.value="";
 
@@ -35,6 +35,7 @@ function changeSystem(){//при изменении selectBox
             massive.push(input_str%val);
             input_str = parseInt(input_str/val);
         }
+
     }
     else{
         while(input_str>=val){
@@ -50,6 +51,24 @@ function changeSystem(){//при изменении selectBox
     massive.push(input_str);
     for(let i=massive.length-1; i>=0;i--){
         output_str.value+=massive[i];
-    }
+    }    
 }
 
+
+function changeListenreForOutput(){
+    const index = document.getElementById("selBox").options.selectedIndex;
+    const val = Number(document.getElementById("selBox").options[index].value);//получил n-ую систему
+
+    const output_str = Number(document.getElementById("des_output").value);//получения полей
+    const input_str = document.getElementById("des_input");
+
+    input_str.value = parseInt(output_str, val);
+}
+
+function EventListener(event){
+    const index = document.getElementById("selBox").options.selectedIndex;
+    const val = Number(document.getElementById("selBox").options[index].value);
+    if(event.key-48<val-1){
+        changeListenreForOutput();
+    }
+}
