@@ -25,7 +25,7 @@ function changeSystem(){//при изменении selectBox
     const p_out =  document.getElementById("number_system");//изменения надписи
     p_out.innerHTML = "В " + val + "-ой системе";
 
-    let input_str = Number(document.getElementById("des_input").value);//получения полей
+    let input_str = document.getElementById("des_input").value;//получения полей
     const output_str = document.getElementById("des_output");
     output_str.value="";
 
@@ -55,20 +55,41 @@ function changeSystem(){//при изменении selectBox
 }
 
 
-function changeListenreForOutput(){
-    const index = document.getElementById("selBox").options.selectedIndex;
-    const val = Number(document.getElementById("selBox").options[index].value);//получил n-ую систему
+function Filter(event){
+    const val = Number(document.getElementById("selBox").value);
+    let keyCode = ('wich' in event) ? event.which : event.keyCode;
+    //let Numeric;
 
-    const output_str = Number(document.getElementById("des_output").value);//получения полей
-    const input_str = document.getElementById("des_input");
 
-    input_str.value = parseInt(output_str, val);
+    if(val < 10){//ограничение цифр
+        Numeric = 10 - val
+    }
+    else{
+        Numeric = 0;
+    }
+    let isNumeric = (keyCode >= 48 && keyCode <= 57 - Numeric)
+    let isAlpha;
+    if(val > 10){
+        Alpha = 65+(val-11);
+        isAlpha = (keyCode >= 65 && keyCode <= Alpha)
+    }
+    else{
+        isAlpha = false;
+    }
+    backspace = keyCode == 8;
+    console.log({val, keyCode, Numeric, isNumeric, Alpha, isAlpha});
+
+    return backspace || isAlpha ||isNumeric;
 }
 
 function EventListener(event){
     const index = document.getElementById("selBox").options.selectedIndex;
     const val = Number(document.getElementById("selBox").options[index].value);
-    if(event.key-48<val-1){
-        changeListenreForOutput();
-    }
+
+    const output_str = document.getElementById("des_output").value;//получения полей
+    const input_str = document.getElementById("des_input");
+
+    input_str.value = parseInt(output_str, val);
+ 
+
 }
