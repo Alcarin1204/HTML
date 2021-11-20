@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="index.js"></script>
     <script src="ForSystems.js"></script>
+    <script src="Stopwatch.js"></script>
 </head>
 
 <body onload="fullSelect()" style="background: #267c62;">
@@ -34,6 +35,13 @@
 <div class="wrapperSystem">
     <p id = "number_system">В $-ой системе</p>
     <input type="text" id="des_output" onkeydown="return Filter(event)" onkeyup="EventListener(event)" size="30%" maxlength="30"/>        
+</div>
+
+<div class="wrapperWithBorder">
+    <p>Таймер</p>
+    <p>Введите кол-во секунд: <input type="number" id="secondsInput" size="30%" maxlength="30"/> 
+        <button style="background-color: #c4c2c2;" onclick="Countdown()">Запуск!</button></p>
+    <p>Осталось секунд: <span id="LeftSeconds">$</span></p>
 </div>
 
 </body>
