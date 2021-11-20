@@ -5,6 +5,11 @@
             margin-right: auto;
             width: 40%;
         }
+        .wrapperCenter{
+            margin-left: auto;
+            margin-right: auto;
+            width: 25em
+        }
         .wrapperList{
             margin-left: 30%;
             margin-right: auto;
@@ -36,7 +41,8 @@
             padding: 5px;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 10px;
             width: 40%;
-            outline: 2px solid #000;
-            
+            outline: 1px solid #000;
         }
+        

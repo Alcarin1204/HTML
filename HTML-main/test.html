@@ -10,8 +10,13 @@
 </head>
 
 <body onload="fullSelect()" style="background: #267c62;">
-<div class="wrapperTop">
+
+<div class="wrapperCenter">
     <h1 style="color: rgb(235, 231, 231); margin-left: 70px;">Список дел</h1>
+</div>
+
+<div class="wrapperTop">
+    
     <input  type="text" id="box" size="30%" placeholder="Введите дело..." maxlength="30"/>
     <button style="background-color: #c4c2c2; " onclick="isAdd()" >Добавить</button>
 </div> 
@@ -25,20 +30,28 @@
     <a href="#" onclick="changeFilter(event)">Не сделано</a>
     <a href="#" onclick="changeFilter(event)">Все</a>
 </div>
+<div class="wrapperWithBorder">
 
-<div class="wrapperSystem">
-    <p>В 10-ой системе</p>
-    <input type="number" id="des_input" oninput="changeSystem()" size="30%" maxlength="30"/>
-    <select id = "selBox" onchange="changeSystem()"></select>        
-</div>
+    <div class="wrapperCenter">
+        <h1 style="color: rgb(235, 231, 231); margin-left: 70px;">Системы счисления</h1>
+    </div>
 
-<div class="wrapperSystem">
-    <p id = "number_system">В $-ой системе</p>
-    <input type="text" id="des_output" onkeydown="return Filter(event)" onkeyup="EventListener(event)" size="30%" maxlength="30"/>        
+    <div >
+        <p>В 10-ой системе</p>
+        <input type="number" id="des_input" oninput="changeSystem()" size="30%" maxlength="30"/>
+        <select id = "selBox" onchange="changeSystem()"></select>        
+    </div>
+
+    <div >
+        <p id = "number_system">В $-ой системе</p>
+        <input type="text" id="des_output" onkeydown="return Filter(event)" onkeyup="EventListener(event)" size="30%" maxlength="30"/>        
+    </div>
 </div>
 
 <div class="wrapperWithBorder">
-    <p>Таймер</p>
+    <div class="wrapperCenter">
+        <h1 style="color: rgb(235, 231, 231); margin-left: 70px;">Таймер</h1>
+    </div>
     <p>Введите кол-во секунд: <input type="number" id="secondsInput" size="30%" maxlength="30"/> 
         <button style="background-color: #c4c2c2;" onclick="Countdown()">Запуск!</button></p>
     <p>Осталось секунд: <span id="LeftSeconds">$</span></p>

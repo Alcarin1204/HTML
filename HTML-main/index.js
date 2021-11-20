@@ -4,7 +4,7 @@ function isAdd() {//добавление сьроки в список
         return;
     }
     array.push({title: str, isChecked: false});
-    Filter();
+    filterList();
     document.getElementById("box").value = "";//очистка поля после добавления элемента
 }
 
@@ -44,14 +44,14 @@ function del(element) {//удаление строки из списка
     const findDelIndx= array.findIndex(e=>e===element);
 
     array.splice(findDelIndx, 1);
-    Filter();
+    filterList();
 }
 
 function checkBox_Checked(element){//перечеркивание отмеченных строк
     const findDelIndx= array.findIndex(e=>e===element);
 
     array[findDelIndx].isChecked=!array[findDelIndx].isChecked;
-    Filter();
+    filterList();
 }
 
 function changeFilter(event){
@@ -60,10 +60,10 @@ function changeFilter(event){
         return;
     }
     currentFilter=event.target.textContent;
-    Filter();
+    filterList();
 }
 
-function Filter(){
+function filterList(){
     const filterList = [];
     if(currentFilter==="Сделано"||currentFilter==="Не сделано"){
         array.forEach(e=>{

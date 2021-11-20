@@ -59,8 +59,7 @@ function Filter(event){
     const val = Number(document.getElementById("selBox").value);
     let keyCode = ('wich' in event) ? event.which : event.keyCode;
     //let Numeric;
-
-
+    
     if(val < 10){//ограничение цифр
         Numeric = 10 - val
     }
@@ -69,6 +68,7 @@ function Filter(event){
     }
     let isNumeric = (keyCode >= 48 && keyCode <= 57 - Numeric)
     let isAlpha;
+    let Alpha;
     if(val > 10){
         Alpha = 65+(val-11);
         isAlpha = (keyCode >= 65 && keyCode <= Alpha)
